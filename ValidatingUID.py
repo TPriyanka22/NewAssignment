@@ -1,0 +1,21 @@
+// Validating UID
+def check_uid(uid):
+    if len(uid) != 10:
+        return False
+    if not any(c.isupper() for c in uid):
+        return False
+    if not any(c.isdigit() for c in uid):
+        return False
+    if not all(c.isalnum() for c in uid):
+        return False
+    if len(set(uid)) != 10:
+        return False
+    return True
+
+t = int(input().strip())
+for _ in range(t):
+    uid = input().strip()
+    if check_uid(uid):
+        print("Valid")
+    else:
+        print("Invalid")
